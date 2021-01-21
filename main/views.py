@@ -12,4 +12,4 @@ def test(request):
 
 def third(request):
     book_list = book.objects.all()
-    return render(request, "This is page test3", {"book": book})
+    return render(request, "books.html", {"book_list": book_list})
