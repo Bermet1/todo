@@ -8,7 +8,7 @@
 <body>
     <h1>page3</h1>
     {% for book in book_list %}
-        {{ book.title }}
+        <h3>{{ book.title }} - {{book.description}} - {{book.price}}</h3>
     {% endfor %}
 </body>
 </html>
