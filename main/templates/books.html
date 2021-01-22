@@ -3,12 +3,49 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/books.css">
     <title>todo</title>
 </head>
 <body>
-    <h1>page3</h1>
-    {% for book in book_list %}
-        <h3>{{ book.title }} - {{book.description}} - {{book.price}}</h3>
-    {% endfor %}
+    <section>
+        <div class="create_container">
+          <form action="{% url 'add-book'%}" method="POST">
+            {% csrf_token %}
+            <div>
+                <input class="create_input" type="text" placeholder="Название книги" name="book_title"
+                />
+                <input class="create_input" type="text" placeholder="Подзаголовок для книги" name="book_subtitle"
+                />
+                <input class="create_input" type="text" placeholder="Описание" name="book_description"
+                />
+                <input class="create_input" type="text" placeholder="Цена" name="book_price"
+                />
+                <input class="create_input" type="text" placeholder="Жанр" name="book_genre"
+                />
+                <input class="create_input" type="text" placeholder="Автор книги" name="book_author"
+                />
+                <input class="create_input" type="text" placeholder="Год выхода книги" name="book_year"
+                />
+            <button class="create_button">Добавить</button>
+            </div>
+          </form>
+        </div>
+
+        <div class = "addBook_container">
+            {% for book in book_list %}
+            <div class="book_style">
+                <div class="book_item">
+                    <h4>{{book.title }}</h4>
+                    <p>{{book.subtitle}}</p>
+                    <p>{{book.author}}</p>
+                    <p>{{book.description}}</p>
+                    <p>{{book.year}}</p>
+                    <p>{{book.genre}}</p>
+                    <p>Цена: {{book.price}}</p>
+                </div>
+            </div>  
+            {% endfor %}
+        </div>
+    </section>
 </body>
 </html>
