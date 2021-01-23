@@ -34,3 +34,8 @@ def add_book(request):
     Book.save()
     return redirect(third)
 
+def delete_todo(request, id):
+    ToDo = todo.objects.get(id=id)
+    ToDo.delete()
+    return redirect(test)
+
