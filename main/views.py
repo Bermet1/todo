@@ -39,3 +39,15 @@ def delete_todo(request, id):
     ToDo.delete()
     return redirect(test)
 
+def mark_todo(request, id):
+    ToDo = todo.objects.get(id=id)
+    ToDo.is_favorite = True
+    ToDo.save()
+    return redirect(test)
+
+def unmark_todo(request, id):
+    ToDo = todo.objects.get(id=id)
+    ToDo.is_favorite = False
+    ToDo.save()
+    return redirect(test)
+
