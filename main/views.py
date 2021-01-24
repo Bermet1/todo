@@ -51,3 +51,9 @@ def unmark_todo(request, id):
     ToDo.save()
     return redirect(test)
 
+def done_todo(request, id):
+    ToDo = todo.objects.get(id=id)
+    ToDo.is_closed = not ToDo.is_closed
+    ToDo.save()
+    return redirect(test)
+
