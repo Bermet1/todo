@@ -57,3 +57,13 @@ def done_todo(request, id):
     ToDo.save()
     return redirect(test)
 
+def delete_book(request, id):
+    Book = book.objects.get(id=id)
+    Book.delete()
+    return redirect(third)
+
+def mark_book(request, id):
+    Book = book.objects.get(id=id)
+    Book.is_favorite = not Book.is_favorite
+    Book.save()
+    return redirect(third)

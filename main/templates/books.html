@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,14 +27,18 @@
                 />
                 <input class="create_input" type="text" placeholder="Год выхода книги" name="book_year"
                 />
-            <button class="create_button">Добавить</button>
+            <button class="button">Добавить</button>
             </div>
           </form>
         </div>
 
         <div class = "addBook_container">
             {% for book in book_list %}
-            <div class="book_style">
+            <div class="book_style
+                {% if book.is_favorite %}
+                    marked
+                {% endif %}"
+            >
                 <div class="book_item">
                     <h4>{{book.title }}</h4>
                     <p>{{book.subtitle}}</p>
@@ -42,6 +47,17 @@
                     <p>{{book.year}}</p>
                     <p>{{book.genre}}</p>
                     <p>Цена: {{book.price}}</p>
+
+                    <div class="action_buttons">
+
+                    {% if book.is_favorite %} 
+                        <a href="{% url 'mark-book' book.id %}"> <img src="{% static 'items/./yellow.png' %}"/></a>
+                    {% else %}
+                        <a href="{% url 'mark-book' book.id %}"> <img src="{% static 'items/./star.png' %}"/></a>
+                    {% endif %}
+                        
+                        <a href="{% url 'delete-book' book.id %}"> <img src="{% static 'items/./basket.png' %}"/></a>
+                    </div>
                 </div>
             </div>  
             {% endfor %}
