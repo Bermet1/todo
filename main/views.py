@@ -67,3 +67,7 @@ def mark_book(request, id):
     Book.is_favorite = not Book.is_favorite
     Book.save()
     return redirect(third)
+
+def BooksDetail(request, id):
+    book_object = book.objects.get(id=id)
+    return render(request, "book_detail.html", {"book_object": book_object})

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/styles/books.css">
-    <title>todo</title>
+    <title>Book</title>
 </head>
 <body>
     <section>
@@ -48,6 +48,7 @@
                     <p>{{book.genre}}</p>
                     <p>Цена: {{book.price}}</p>
 
+
                     <div class="action_buttons">
 
                     {% if book.is_favorite %} 
@@ -57,6 +58,8 @@
                     {% endif %}
                         
                         <a href="{% url 'delete-book' book.id %}"> <img src="{% static 'items/./basket.png' %}"/></a>
+                        <a href="{% url 'BooksDetail' book.id %}">...</a>
+                        
                     </div>
                 </div>
             </div>  
