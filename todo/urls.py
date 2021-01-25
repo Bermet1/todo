@@ -29,7 +29,7 @@ urlpatterns = [
 
     path("delete-todo/<id>/", delete_todo, name="delete-todo"),
     path("mark-todo/<id>/", mark_todo, name="mark-todo"),
-    path("mark-todo/<id>/", unmark_todo, name="unmark-todo"),
+    path("unmark-todo/<id>/", unmark_todo, name="unmark-todo"),
     path("done-todo/<id>/", done_todo, name="done-todo"),
 
     path("delete-book/<id>/", delete_book, name="delete-book"),
