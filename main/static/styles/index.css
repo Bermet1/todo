@@ -64,6 +64,7 @@ section{
     color: #757575;
 }
 
+
 .todo_item.done h4, .todo_item.done p, .todo_item.done span{
     color: #757575;
 }
@@ -73,6 +74,11 @@ section{
     font-family: sans-serif;
     margin-left: 28px;
 }
+
+.todo_item_header h4 a{
+    text-decoration: none;
+}
+
 
 .todo_item_footer{
     display: flex;
